@@ -8,12 +8,18 @@
     <title>Minesweeper game</title>
 </head>
 <body onload="initGame()">
+    <img class="title" src="images/title.png">
         <table>
             <tbody class="game-board">
             </tbody>
         </table>
-
-    <script src="/js/util.js"></script>
-    <script src="/js/game.js"></script>
+        <div class="levels">
+        <button onclick="changeLevel(4)">EASY PEASY</button>
+        <button onclick="changeLevel(5)">TAKE THE RISK</button>
+        <button onclick="changeLevel(6)">EXTREME</button>
+        </div>
+        
+    <script src="js/util.js"></script>
+    <script src="js/game.js"></script>
 </body>
 </html>

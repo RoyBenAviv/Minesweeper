@@ -11,13 +11,12 @@ var gGame = {
     secsPassed: 0
 };
 
-var gBoard = buildBoard();
+var gBoard;
+var gBombCounter = 0;
 
-var board = buildBoard();
 function initGame() {
-    console.table(board);
-    buildBoard();
-    addCherry()
+    //console.table(board);
+    gBoard = buildBoard();
     renderBoard();
 
 }
@@ -35,8 +34,14 @@ function buildBoard() {
             };
             board[i][j] = cell;
         }
-    }
 
+    }
+    // var randomI = getRandomInt(0, gLevel.SIZE -1)
+    // var randomJ = getRandomInt(0, gLevel.SIZE -1)
+    // console.log(randomI)
+    // console.log(randomJ)
+    board[getRandomInt(0, gLevel.SIZE - 1)][getRandomInt(0, gLevel.SIZE - 1)].isMine = true;
+    board[getRandomInt(0, gLevel.SIZE - 1)][getRandomInt(0, gLevel.SIZE - 1)].isMine = true;
     return board;
 }
 
@@ -56,39 +61,51 @@ function setMinesNegsCount(board, rowIdx, colIdx) {
     return board.minesAroundCount;
 }
 
-function renderBoard() {
-    var strHTML = '';
-    for (var i = 0; i < board.length; i++) {
-        strHTML += `<tr class="board-row" >\n`;
-        for (var j = 0; j < board.length; j++) {
-            var cell = board[i][j];
-          //  var className = (cell.isMine) ? 'bomb' : 'floor';
-            strHTML += `\t<td
-                onclick="cellClicked(this, ${i}, ${j})"></td>`;
 
-        }
-        strHTML += `</tr>\n`;
-    }
-    var elCells = document.querySelector('.game-board');
-    elCells.innerHTML = strHTML;
-}
 
 
 function cellClicked(elCell, i, j) {
     var cell = gBoard[i][j];
-    var minesAround = setMinesNegsCount(board, i, j);
+    var minesAround = setMinesNegsCount(gBoard, i, j);
+    oncontextmenu = `flag(this,${i}, ${j})`;
+    console.log('right', i, j);
     cell.isShown = true;
-
-    if(cell.isMine) {
-        elCell.innerHTML = `<span class="numbers">DEAD</span>`
+    if (cell.isMine) {
+        mineCounter++;
+        if (gLevel.MINES === mineCounter) {
+            lostGame();
+        }
+        setTimeout(() => {
+            elCell.innerHTML = `<img class="bomb ${gLevel.SIZE}" src="images/bomb.png">`;
+        }, 700);
+        elCell.innerHTML = `<img class="bomb ${gLevel.SIZE}" src="images/explotion.gif">`;
     } else {
-        elCell.innerHTML = `<span class="numbers">${minesAround}</span>`;
+        elCell.innerHTML = `<span class="numbers ${gLevel.SIZE}">${minesAround}</span>`;
     }
 
 
 }
 
+function changeLevel(num) {
+    gLevel.SIZE = num;
+    initGame();
+}
 
 function checkGameOver() {
 
 }
+
+function flag(elCell,i, j) {
+    var cell = gBoard[i][j]
+    window.event.preventDefault()
+    elCell.classList.toggle('mark')
+    console.log(elCell)
+}
+
+
+
+
+
+
+
+
