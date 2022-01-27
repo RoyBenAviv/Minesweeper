@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="shortcut icon" type="image/jpg" href="images/favicon.png" />
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minesweeper game</title>
+    <title>Minesweeper Bomb!</title>
 </head>
+
 <body onload="initGame()">
-    <img class="title" src="images/title.png">
-        <table>
-            <tbody class="game-board">
-            </tbody>
-        </table>
-        <div class="levels">
-        <button onclick="changeLevel(4)">EASY PEASY</button>
-        <button onclick="changeLevel(5)">TAKE THE RISK</button>
-        <button onclick="changeLevel(6)">EXTREME</button>
+    <div class="modal">
+        <div class="win">
+            <h3>YOU WON!</h3>
+            <img src="images/win.png">
         </div>
-        
+        <div class="lose">
+            <h3>BOOM... YOU LOST.</h3>
+            <img src="images/lose.png">
+        </div>
+
+        <button onclick="initGame()">RESTART</button>
+    </div>
+    <img class="title" src="images/title.png">
+    <div class="user">
+        <h3>⌛ TIMER: <span class="time">0</span></h3>
+        <h3>🧨 BOMBS: <span>0</span></h3>
+        <h3>💘 LIVES: <span>3</span></h3>
+    </div>
+    <table>
+        <tbody class="game-board">
+        </tbody>
+    </table>
+    <div class="levels">
+        <button onclick="changeLevel(6)">EASY PEASY</button>
+        <button onclick="changeLevel(7)">TAKE THE RISK</button>
+        <button onclick="changeLevel(8)">EXTREME</button>
+    </div>
+
     <script src="js/util.js"></script>
     <script src="js/game.js"></script>
 </body>
+
 </html>

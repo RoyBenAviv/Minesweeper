@@ -1,5 +1,6 @@
+
 * {
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     margin: 0 auto;
     text-align: center;
     overflow: hidden;
@@ -12,43 +13,80 @@ html {
     background-image: linear-gradient(to right top, #9a9ae1, #9a9ae1, #9a9ae1, #9a9ae1, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
 body {
-    height: 100%;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     
 }
 
 table {
-    position: relative;
-    margin-top: 20px;
+    width: 460px;
+    height: 460px;
+    margin-top: 40px;
     border: 1px solid #9a9ae1;
     border-radius: 3px;
     box-shadow: 0px 0px 15px 5px #D16BA5;
     table-layout: fixed;
 }
 
+.modal {
+    background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #8aa7ec, #8aa7ec, #8aa7ec, #8aa7ec, #79b3f4, #79b3f4);
+    z-index: 1;
+    width: 400px;
+    height: 250px;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 0px 15px 5px #D16BA5;
+    border-radius: 20%;
+    transition: 0.5;
+}
+.modal h3 {
+    margin-top: 10px;
+}
+
+.modal .win img {
+    width: 150px;
+    margin-top: 20px;
+}
+
+.modal .lose img {
+    width: 120px;
+    margin-top: 20px;
+}
+
+
 button {
     margin: 10px;
-    padding: 7px;
-    width: 150px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 35%;
+    border: 3px solid white;
     cursor: pointer;
-    color: rgb(255, 30, 30);
+    color: white;
+    background-color: #da445d;
+    font-size: 15px;
     font-weight: bold;
    }
    
-
-th {
-    position: sticky;
-  }
+button:hover {
+    background-color: #da445daf;
+}
 
 td {
     padding: 10px;
     background-color: #91f3ec;
     cursor: pointer;
-    width: 10px;
-    height: 10px;
+    width: 55px;
+    height: 55px;
     opacity: 0.9;
     transition: 0.7s;
     line-height: 0;
@@ -64,15 +102,22 @@ td:hover {
     height: 35px;
 }
 
+.flag {
+    width: 35px;
+    height: 35px;
+}
+
 .title {
-    width: 250px;
-    margin-top: 20px;
+    width: 350px;
+    margin-top: 30px;
+    user-select: none;
 
 }
 
 .numbers {
     color: rgb(255, 30, 30);
     font-family: fantasy;
+    font-size: 25px;
 }
 
 .levels {
@@ -81,5 +126,27 @@ td:hover {
 }
 
 .mark {
-    background-color: red;
+    background-color: #8afff77c;
+}
+
+
+.user > * {
+    margin: 10px 50px;
+    user-select: none;
+}
+
+.user {
+    display: flex;
+    letter-spacing: 3px;
+}
+
+.time {
+    margin-right: 100px;
+}
+
+h3:nth-child(1) span {
+    position: fixed;
+    margin-left: 9px;
+    margin-top: 1px;
+
 }
