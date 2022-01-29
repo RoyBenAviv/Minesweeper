@@ -4,8 +4,6 @@
     margin: 0 auto;
     text-align: center;
     overflow: hidden;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
 }
 
 html {
@@ -21,13 +19,15 @@ body {
     justify-content: center;
     align-content: center;
     align-items: center;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
     
 }
 
 table {
     width: 460px;
     height: 460px;
-    margin-top: 40px;
+    margin-top: 15px;
     border: 1px solid #9a9ae1;
     border-radius: 3px;
     box-shadow: 0px 0px 15px 5px #D16BA5;
@@ -48,7 +48,7 @@ table {
     padding: 10px;
     box-shadow: 0px 0px 15px 5px #D16BA5;
     border-radius: 20%;
-    transition: 0.5;
+    opacity: 0.8;
 }
 .modal h3 {
     margin-top: 10px;
@@ -73,8 +73,11 @@ button {
     cursor: pointer;
     color: white;
     background-color: #da445d;
-    font-size: 15px;
+    font-size: 16px;
+    font-family: 'Indie Flower', cursive; 
     font-weight: bold;
+    letter-spacing: 3px;
+
    }
    
 button:hover {
@@ -82,14 +85,16 @@ button:hover {
 }
 
 td {
-    padding: 10px;
+    /* padding: 10px; */
     background-color: #91f3ec;
     cursor: pointer;
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
     opacity: 0.9;
     transition: 0.7s;
     line-height: 0;
+    /* color: rgb(255, 30, 30); */
+    font-size: 40px;
 }
 
 td:hover {
@@ -114,10 +119,10 @@ td:hover {
 
 }
 
-.numbers {
-    color: rgb(255, 30, 30);
-    font-family: fantasy;
-    font-size: 25px;
+.second-title {
+    margin-bottom: 20px;
+    color: #942000;
+    user-select: none;
 }
 
 .levels {
@@ -131,13 +136,14 @@ td:hover {
 
 
 .user > * {
-    margin: 10px 50px;
+    margin: 20px 80px;
     user-select: none;
 }
 
 .user {
     display: flex;
     letter-spacing: 3px;
+    font-size: 20px;
 }
 
 .time {
@@ -149,4 +155,20 @@ h3:nth-child(1) span {
     margin-left: 9px;
     margin-top: 1px;
 
+}
+
+.clicked {
+    background-color: #91f3ec7c;
+}
+
+.hint {
+    background-color: gold;
+}
+
+p u {
+    cursor: pointer;
+}
+
+p u:hover {
+    color: gold
 }

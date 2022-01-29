@@ -7,9 +7,11 @@ var gLives = 2;
 function renderBoard() {
   var strHTML = '';
   for (var i = 0; i < gBoard.length; i++) {
-    strHTML += `<tr class="board-row" >\n`;
+    strHTML += `<tr>\n`;
     for (var j = 0; j < gBoard.length; j++) {
-      strHTML += `\t<td oncontextmenu="flag(this, ${i}, ${j})"
+      var cell = gBoard[i][j]
+      cell.minesAroundCount = setMinesNegsCount(gBoard, i, j)
+      strHTML += `\t<td class="cell-${i}-${j}" oncontextmenu="flag(this, ${i}, ${j})"
               onclick="cellClicked(this, ${i}, ${j})"></td>`;
 
     }
@@ -22,7 +24,7 @@ function renderBoard() {
 // user experience
 function userBombs() {
   var elBombs = document.querySelector('h3:nth-child(2) span');
-  elBombs.innerText = gLevel.MINES[gCurrLevelIdx];
+  elBombs.innerText = gBombs--;
 }
 
 function presentTimer(){

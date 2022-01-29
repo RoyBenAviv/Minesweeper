@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/jpg" href="images/favicon.png" />
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minesweeper Bomb!</title>
+    <title>Minesweeper Boom!</title>
 </head>
 
 <body onload="initGame()">
@@ -21,22 +24,25 @@
             <img src="images/lose.png">
         </div>
 
-        <button onclick="initGame()">RESTART</button>
+        <button onclick="initGame()">TRY AGAIN</button>
     </div>
     <img class="title" src="images/title.png">
+    <p class="second-title">💥don't step the bombs💥</p>
     <div class="user">
         <h3>⌛ TIMER: <span class="time">0</span></h3>
-        <h3>🧨 BOMBS: <span>0</span></h3>
-        <h3>💘 LIVES: <span>3</span></h3>
+        <h3>🧨 BOMBS: <span></span></h3>
+        <h3>LIVES: <span></span></h3>
+        <!-- <h3>HINTS: <span>💡💡💡</span></h3> -->
     </div>
+    <p>Need a hint? <u onclick="getHint()">click here</u></p>
     <table>
         <tbody class="game-board">
         </tbody>
     </table>
     <div class="levels">
-        <button onclick="changeLevel(6)">EASY PEASY</button>
-        <button onclick="changeLevel(7)">TAKE THE RISK</button>
-        <button onclick="changeLevel(8)">EXTREME</button>
+        <button onclick="changeLevel(6)">😋 EASY PEASY</button>
+        <button onclick="changeLevel(8)">🤨 TAKE THE RISK</button>
+        <button onclick="changeLevel(10)">🤯 EXTREME</button>
     </div>
 
     <script src="js/util.js"></script>
