@@ -132,11 +132,12 @@ function cellClicked(elCell, i, j) {
             clearInterval(gTimerInterval);
             gElModal.style.display = 'flex';
             gElLose.style.display = 'block';
+            getMines()
         }
         setTimeout(() => {
-            elCell.innerHTML = `<img class="bomb" src="images/bomb.png">`;
+            elCell.innerHTML = `<img class="bomb" src="/images/bomb.png">`;
         }, 700);
-        elCell.innerHTML = `<img class="bomb" src="images/explotion.gif">`;
+        elCell.innerHTML = `<img class="bomb" src="/images/explotion.gif">`;
     } else { // when cell clicked and its not mine or marked
         gGame.shownCount++;
         correctSound();
@@ -151,7 +152,7 @@ function cellClicked(elCell, i, j) {
             else if (cell.minesAroundCount === 2) elCell.style.color = 'green';
             else if (cell.minesAroundCount == 3) elCell.style.color = 'red';
         }, 700);
-        elCell.innerHTML = `<img class="bomb" src="images/v.gif">`;
+        elCell.innerHTML = `<img class="bomb" src="/images/v.gif">`;
     }
 
     cell.execution = true;
@@ -167,7 +168,7 @@ function flag(elCell, i, j) {
     if (elCell.classList.contains('mark')) { // if the cell contains mark class
         gGame.markedCount++;
         if (cell.isMine) checkGameOver();
-        elCell.innerHTML = `<img class="flag" src="images/flag.png">`;
+        elCell.innerHTML = `<img class="flag" src="/images/flag.png">`;
     } else { // if cell not contains mark class
         elCell.innerHTML = '';
         cell.isMarked = !cell.isMarked;
@@ -196,12 +197,7 @@ function checkGameOver() { // WIN
         clearInterval(gTimerInterval);
         gElModal.style.display = 'flex';
         gElWin.style.display = 'block';
-        var mines = allMines()
-
-        for(var i = 0; i < mines.length; i++) {
-            mines[i].innerHTML = `<img class="bomb" src="images/bomb.png">`
-        }
-        
+        getMines()
     }
 }
 
@@ -250,5 +246,14 @@ function allMines(elCell) {
         }
     }
     return cellMines;
+}
+
+function getMines() {
+    var mines = allMines()
+
+    for(var i = 0; i < mines.length; i++) {
+        mines[i].innerHTML = `<img class="bomb" src="/images/bomb.png">`
+    }
+
 
 }
