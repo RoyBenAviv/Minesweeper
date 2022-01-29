@@ -152,7 +152,7 @@ function cellClicked(elCell, i, j) {
             else if (cell.minesAroundCount === 2) elCell.style.color = 'green';
             else if (cell.minesAroundCount == 3) elCell.style.color = 'red';
         }, 700);
-        elCell.innerHTML = `<img class="bomb" src="/images/v.gif">`;
+        elCell.innerHTML = `<img class="bomb" src="images/v.gif">`;
     }
 
     cell.execution = true;
