@@ -1,2 +1,3 @@
 # minesweeper-game
-Vanilla JS Minesweeper Game
+My first Javascript project! 🙂
+Minesweeper game with my own touch design, Vanilla JS.
